@@ -1,0 +1,35 @@
+<html>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myController', function($scope){
+			$scope.myCountry = "India";
+			$scope.myName = "Amit";
+		});
+	</script>
+<head>
+	<title> My First Controller</title>
+</head>
+<style></style>
+
+<body ng-app="myApp" ng-init="value = 'Welcome to my Angular JS Page'">
+<h1 ng-bind="value"> </h1>
+<div ng-controller="myController">
+<h1>{{myCountry +" " + myName}}</h1>
+
+</div>
+
+
+<div>
+	<p>Name : <input type="text" ng-model="name"></p>
+	<h2 >Hello {{name}} !! </h2>
+	<h3 ng-bind="name"></h3>
+</div>
+
+<div>
+	The value of 5+10 is {{5+10}} </span>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<html>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myController', function($scope){
+			$scope.personalInfo=[
+								{name:'Sunil',age:'33',country:'China'},
+								{name:'Amit',age:'23',country:'India'},
+								{name:'Sakshi',age:'22',country:'Nepal'},
+								{name:'Alok',age:'43',country:'Bhutan'},
+								{name:'Neha',age:'33',country:'USA'},
+								{name:'Jai',age:'35',country:'England'},
+								{name:'Jacintha',age:'30',country:'Norway'}
+								];
+			$scope.orderByVal = function(val){
+				$scope.orderValue = val;
+			}
+		});
+	</script>
+<head>
+	<title> Angular JS with Filters</title>
+</head>
+<style></style>
+
+<body ng-app="myApp" ng-init="value = 'Welcome to my Angular JS Page'">
+<h1 align="center" ng-bind="value"> </h1>
+<p> Search Anything in Table :: <input type ="text" ng-model="filterOut"></p>
+<div ng-controller="myController">
+	<table border="1" width="100%">
+		<caption><h3>User Information Table</h3> </caption>
+		<thead>
+			<tr>
+				<th ng-click="orderByVal('name')">Name</th>
+				<th ng-click="orderByVal('age')">Age</th>
+				<th ng-click="orderByVal('country')">Country</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="s in personalInfo | orderBy : orderValue | filter : filterOut" >
+				<td>{{s.name}}</td>
+				<td>{{s.age}}</td>
+				<td>{{s.country}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+</div>
+
+<div>
+	<ul>
+		<li ng-repeat="val in personalInfo | filter : filterOut">
+			<h3> {{val.name | uppercase}} </h3>
+			<h3> {{val.age + ',' + val.country}} </h3>
+			
+		</li>
+	</ul>
+
+</div>
+
+</body>
+
+</html>

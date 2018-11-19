@@ -1,0 +1,23 @@
+<html>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+<head>
+	<title> My AngularJS Page</title>
+</head>
+<style></style>
+
+<body ng-app="" ng-init="value = 'Welcome to my Angular JS Page'">
+<h1 ng-bind="value"> </h1>
+
+<div>
+	<p>Name : <input type="text" ng-model="name"></p>
+	<h2 >Hello {{name}} !! </h2>
+	<h3 ng-bind="name"></h3>
+</div>
+
+<div>
+	The value of 5+10 is {{5+10}} </span>
+</div>
+
+</body>
+
+</html>

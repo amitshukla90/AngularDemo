@@ -1,0 +1,36 @@
+<html>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+	<script>
+		var app = angular.module('myApp', []);
+
+		app.service('myFirstService',function(){
+			this.myFunction = function(val){
+				return "Hello "+ val +" ! How are you doing today ??";
+			    }
+			});
+		app.service('calCulateSquare',function(){
+			this.myFunction = function(val){
+				return "Square of the number "+ val +" is ::" + val * val ;
+			    }
+			});
+		app.controller('myController', function($scope,myFirstService,calCulateSquare){
+			$scope.sayHello = myFirstService.myFunction("Amit");
+			$scope.squareVal = calCulateSquare.myFunction(10);
+		});
+	</script>
+<head>
+	<title> Angular Services</title>
+</head>
+<style></style>
+
+<body ng-app="myApp" ng-init="value = 'Welcome to my Angular JS Page'">
+<h1 align="center" ng-bind="value"> </h1>
+<div ng-controller="myController">
+	<p><h3 align="center">{{sayHello}}</h3></p>
+	<p><h3 align="center">{{squareVal}}</h3></p>
+</div>
+
+
+</body>
+
+</html>

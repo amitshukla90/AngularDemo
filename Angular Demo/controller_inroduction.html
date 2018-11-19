@@ -1,0 +1,34 @@
+<html>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+	<script>
+		var app = angular.module('myApp', []);
+		app.directive("myOwnDirective",function(){
+			return {
+				restrict : "EA",
+				template : "<h1> This is my own directive </h1>"
+			};
+		});
+
+		app.controller('myFirstController',  function($scope){
+			$scope.name = " This is  coming from Controller and  we are in Angular JS Training";
+		});
+	</script>
+<head>
+	<title> Creating your Own directive</title>
+</head>
+<style></style>
+
+<body ng-app="myApp" ng-init="value = 'Welcome to my Angular JS Page'" ng-controller="myFirstController">
+	 Name: <input ng-model="name">
+<h1>{{name}}</h1>
+<div>
+	<my-own-directive></my-own-directive>
+</div>
+
+<div>
+	The value of 5+10 is {{5+10}} </span>
+</div>
+
+</body>
+
+</html>
